@@ -5,17 +5,10 @@
         <td v-for="field in fields" :key="field.keys">
           <form>
             <select>
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
-              <option>D</option>
-              <option>E</option>
+              <option v-for="key in dropDownSelectors[field.key]">{{ key }}</option>
             </select>
           </form>
         </td>
-<!--         <td v-for="field in fields" :key="field.key">
-          <input v-model="filters[field.key]" :placeholder="field.label">
-        </td> -->
       </template>
     </b-table>
 
@@ -31,7 +24,12 @@
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
           { age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+        ],
+        dropDownSelectors: {
+          'age': [1, 2, 3, 4, 5],
+          'first_name': [1,2,3,4,5],
+          'last_name': [1,2,3,4,5]
+        }
       }
     }
   }
